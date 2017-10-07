@@ -9,13 +9,40 @@ type Props = {|
     tweets: TweetsListType
 |}
 
+const formatDate = (dateSql:string):string => {
+    const dateObj = new Date(dateSql);
+    const date = [];
+    let month = dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
+
+    date.push(dateObj.getDate());
+
+    month = month < 10 ? `0${month}` : month;
+    date.push(month);
+
+    if (year !== (new Date()).getFullYear()) {
+        date.push(year);
+    }
+
+    return date.join('.');
+};
+
 const List = (props:Props) => {
     return (
-        <ul>
+        <div>
             {
-                props.tweets.map(tweet => <li key={tweet.id}>{tweet.text}</li>)
+                props.tweets.map(
+                    tweet => (
+                        <div key={tweet.id}>
+                            <hr />
+                            <b><small>{formatDate(tweet.date)}</small></b><br />
+                            {tweet.text}<br />
+                        </div>
+                    )
+                )
             }
-        </ul>
+            <hr />
+        </div>
     );
 };
 
