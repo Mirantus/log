@@ -1,0 +1,86 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "extends": ["airbnb"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "flowtype"
+    ],
+    "rules": {
+        "arrow-body-style": "off",
+        "arrow-parens": "off",
+        "camelcase": "off",
+        "class-methods-use-this": "off",
+        "consistent-return": "off",
+        "comma-dangle": "off",
+        "func-names": "off",
+        "global-require": "off",
+        "indent": [2, 4, {"SwitchCase": 1}],
+        "label-has-for": "off",
+        "linebreak-style": [2, "unix"],
+        "max-len": [0, 140, 2],
+        "no-case-declarations": "off",
+        "no-duplicate-imports": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-prototype-builtins": "off",
+        "no-undef": 0,
+        "no-underscore-dangle": "off",
+        "no-unused-expressions": ["error", { "allowTernary": true }],
+        "radix": "off",
+        "flowtype/define-flow-type": 1,
+        "flowtype/require-parameter-type": 0,
+        "flowtype/union-intersection-spacing": [
+            2,
+            "always"
+        ],
+        "flowtype/use-flow-type": 1,
+        "flowtype/valid-syntax": 1,
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-named-as-default": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "jsx-a11y/href-no-hash": "off",
+        "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "react/forbid-prop-types": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
+        "react/jsx-no-bind": "off",
+        "react/jsx-no-target-blank": "off",
+        "react/no-danger": "off",
+        "react/no-string-refs": "off",
+        "react/no-unused-prop-types": "off",
+        "react/prefer-stateless-function": "off",
+        "react/prop-types": "off",
+        "react/sort-comp": [2, {
+            "order": [
+                "flow",
+                "/^_.+$/",
+                "static-methods",
+                "lifecycle",
+                "everything-else",
+                "render"
+            ],
+            "groups": {
+                "flow": [
+                    "props",
+                    "state",
+                    "defaultProps"
+                ]
+            }
+        }]
+    }
+}
