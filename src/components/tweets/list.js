@@ -11,11 +11,11 @@ type Props = {|
 
 const List = (props:Props) => {
     return (
-        <div>
+        <ul>
             {
-                props.tweets.map(tweet => <div key={tweet.id}>{tweet.text}</div>)
+                props.tweets.map(tweet => <li key={tweet.id}>{tweet.text}</li>)
             }
-        </div>
+        </ul>
     );
 };
 
