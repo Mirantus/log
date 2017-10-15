@@ -5,12 +5,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 
-import { initAdd, add } from 'actions/tweets/add/';
-import Form from 'components/tweets/add';
-import Loader from 'components/loader';
+import Loader from 'components/loader/';
 
-import type { StateType as ErrorType } from 'reducers/tweets/add/error';
 import type { withRouterType } from 'types/withRouter';
+
+import { initAdd, add } from './actions';
+import Form from './components/form.js';
+
+import type { StateType as ErrorType } from './reducers/error';
 
 type ownProps = {|
     isSubmitting: boolean,

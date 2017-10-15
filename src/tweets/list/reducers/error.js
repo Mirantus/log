@@ -1,9 +1,10 @@
 // @flow
 
-import { TWEETS_FETCH, TWEETS_FETCH_ERROR } from 'constants/actions/tweets/list';
-
-import type { ActionType } from 'actions/tweets/list/types';
 import type { ErrorType } from 'types/error';
+
+import { TWEETS_FETCH, TWEETS_FETCH_ERROR } from '../constants';
+
+import type { ActionType } from '../actions/types';
 
 export type StateType = ?ErrorType;
 const initialState = null;

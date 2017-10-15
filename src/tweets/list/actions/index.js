@@ -1,11 +1,7 @@
 // @flow
 import type { Dispatch } from 'redux';
 
-import {
-    TWEETS_FETCH,
-    TWEETS_FETCH_OK,
-    TWEETS_FETCH_ERROR,
-} from 'constants/actions/tweets/list';
+import { TWEETS_FETCH, TWEETS_FETCH_OK, TWEETS_FETCH_ERROR } from '../constants';
 
 export const fetchTweets = () => async (dispatch:Dispatch<Object>) => {
     dispatch({

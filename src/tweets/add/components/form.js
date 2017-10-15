@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Error from 'components/error';
 
-import type { StateType as ErrorType } from 'reducers/tweets/add/error';
+import Error from 'components/error/';
+
+import type { StateType as ErrorType } from '../reducers/error';
 
 type Props = {|
     formError: ErrorType,

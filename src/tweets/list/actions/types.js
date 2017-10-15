@@ -1,6 +1,6 @@
 // @flow
 
-import type { TweetType } from 'types/tweets/tweet';
+import type { TweetType } from 'types/tweet';
 import type { ErrorType } from 'types/error';
 
 export type FetchActionType = {|

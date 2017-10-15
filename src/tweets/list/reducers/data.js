@@ -1,9 +1,10 @@
 // @flow
 
-import { TWEETS_FETCH, TWEETS_FETCH_OK } from 'constants/actions/tweets/list';
+import type { TweetType } from 'types/tweet';
 
-import type { ActionType } from 'actions/tweets/list/types';
-import type { TweetType } from 'types/tweets/tweet';
+import { TWEETS_FETCH, TWEETS_FETCH_OK } from '../constants.js';
+
+import type { ActionType } from '../actions/types';
 
 export type StateType = Array<TweetType>;
 const initialState = [];

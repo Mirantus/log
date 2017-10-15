@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import TweetList from 'containers/tweets/list/';
+import TweetList from 'tweets/list/';
 
 export default () => (
     <div>

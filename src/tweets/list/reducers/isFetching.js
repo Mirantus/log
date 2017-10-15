@@ -1,8 +1,8 @@
 // @flow
 
-import { TWEETS_FETCH, TWEETS_FETCH_OK, TWEETS_FETCH_ERROR } from 'constants/actions/tweets/list';
+import { TWEETS_FETCH, TWEETS_FETCH_OK, TWEETS_FETCH_ERROR } from '../constants';
 
-import type { ActionType } from 'actions/tweets/list/types';
+import type { ActionType } from '../actions/types';
 
 export type StateType = boolean;
 const initialState = false;

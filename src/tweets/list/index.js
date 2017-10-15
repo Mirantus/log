@@ -4,15 +4,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchTweets } from 'actions/tweets/list';
-import TweetsList from 'components/tweets/list';
-import Error from 'components/error';
-import Loader from 'components/loader';
+import Error from 'components/error/';
+import Loader from 'components/loader/';
 
-import type { StateType as TweetsType } from 'reducers/tweets/list/data';
-import type { StateType as ErrorType } from 'reducers/tweets/list/error';
-
+import { fetchTweets } from './actions/';
+import TweetsList from './components/list';
 import mapStateToProps from './selectors';
+
+import type { StateType as TweetsType } from './reducers/data';
+import type { StateType as ErrorType } from './reducers/error';
 
 type Props = {|
     tweets: TweetsType,

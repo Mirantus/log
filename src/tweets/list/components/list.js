@@ -3,7 +3,7 @@
 import React from 'react';
 import pure from 'recompose/pure';
 
-import type { StateType as TweetsListType } from 'reducers/tweets/list/data';
+import type { StateType as TweetsListType } from '../reducers/data';
 
 type Props = {|
     tweets: TweetsListType

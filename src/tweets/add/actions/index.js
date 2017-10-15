@@ -1,15 +1,15 @@
 // @flow
 
-import {
-    TWEETS_ADD_INIT,
-    TWEETS_ADD,
-    TWEETS_ADD_OK,
-    TWEETS_ADD_ERROR,
-} from 'constants/actions/tweets/add';
-
 import type { Dispatch } from 'redux';
 
-import type { TweetType } from 'types/tweets/tweet';
+import type { TweetType } from 'types/tweet';
+
+import {
+TWEETS_ADD_INIT,
+TWEETS_ADD,
+TWEETS_ADD_OK,
+TWEETS_ADD_ERROR,
+} from '../constants';
 
 export const initAdd = () => ({ type: TWEETS_ADD_INIT });
 

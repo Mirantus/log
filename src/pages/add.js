@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import TweetsAdd from 'containers/tweets/add/';
+import TweetsAdd from 'tweets/add/';
 
 export default () => (
     <div>
