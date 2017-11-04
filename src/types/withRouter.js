@@ -1,7 +1,9 @@
 // @flow
 
 export type withRouterType = {|
-    match: {},
+    match: {
+        params: any
+    },
     location: {},
     history: {
         push: Function

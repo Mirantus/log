@@ -2,6 +2,7 @@
 
 import React from 'react';
 import pure from 'recompose/pure';
+import { Link } from 'react-router-dom';
 
 import type { StateType as TweetsListType } from '../reducers/data';
 
@@ -37,6 +38,7 @@ const List = (props:Props) => {
                             <hr />
                             <b><small>{formatDate(tweet.date)}</small></b><br />
                             {tweet.text}<br />
+                            <Link to={`/edit/${tweet.id}`}>редактировать</Link><br />
                         </div>
                     )
                 )

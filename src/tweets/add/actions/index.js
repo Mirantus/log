@@ -21,7 +21,7 @@ export const add = (values:TweetType) => async (dispatch:Dispatch<Object>) => {
             // $FlowFixMe
             `${APP_ENV.apiUrl}/tweets/`,
             {
-                method: 'POST',
+                method: 'PUT',
                 body: JSON.stringify(values)
             }
         );

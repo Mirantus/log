@@ -1,9 +1,5 @@
-[ignore]
-
 [include]
 src/*
-
-[libs]
 
 [options]
 module.system.node.resolve_dirname=src
