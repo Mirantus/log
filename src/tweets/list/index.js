@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import Error from 'components/error/';
 import Loader from 'components/loader/';
+import { removeTweet } from 'tweets/remove/actions/';
 
 import { fetchTweets } from './actions/';
 import TweetsList from './components/list';
@@ -18,9 +19,11 @@ type Props = {|
     tweets: TweetsType,
     isLoaded: boolean,
     isFetching: boolean,
+    isRemoving: boolean,
     error: ErrorType,
     actions: {
-        fetchTweets: Function
+        fetchTweets: Function,
+        removeTweet: Function,
     }
 |};
 
@@ -34,7 +37,7 @@ export class TweetsListContainer extends Component<Props> {
     }
 
     render() {
-        const { tweets, isFetching, error } = this.props;
+        const { actions, tweets, isFetching, isRemoving, error } = this.props;
 
         if (isFetching) {
             return <Loader />;
@@ -44,12 +47,14 @@ export class TweetsListContainer extends Component<Props> {
             return <Error {...error} />;
         }
 
-        return <TweetsList tweets={tweets} />;
+        return (
+            <TweetsList tweets={tweets} isRemoving={isRemoving} onRemove={actions.removeTweet} />
+        );
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ fetchTweets }, dispatch)
+    actions: bindActionCreators({ fetchTweets, removeTweet }, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TweetsListContainer);

@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 import type { StateType as TweetsListType } from '../reducers/data';
 
 type Props = {|
-    tweets: TweetsListType
+    tweets: TweetsListType,
+    isRemoving: boolean,
+    onRemove: Function
 |}
 
 const formatDate = (dateSql:string):string => {
@@ -38,7 +40,26 @@ const List = (props:Props) => {
                             <hr />
                             <b><small>{formatDate(tweet.date)}</small></b><br />
                             {tweet.text}<br />
-                            <Link to={`/edit/${tweet.id}`}>редактировать</Link><br />
+                            <Link to={`/edit/${tweet.id}`}>редактировать</Link>
+                            &nbsp;
+                            {
+                                props.isRemoving
+                                    ? 'удаляется...'
+                                    : (
+                                        <a
+                                            href={`/remove/${tweet.id}`}
+                                            onClick={
+                                                (e:SyntheticEvent<HTMLAnchorElement>) => {
+                                                    e.preventDefault();
+                                                    if (confirm('Вы действительно хотите удалить?')) {
+                                                        props.onRemove(tweet.id);
+                                                    }
+                                                }
+                                            }
+                                        >удалить</a>
+                                    )
+                            }
+                            <br />
                         </div>
                     )
                 )

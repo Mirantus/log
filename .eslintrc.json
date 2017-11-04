@@ -29,6 +29,7 @@
         "label-has-for": "off",
         "linebreak-style": [2, "unix"],
         "max-len": [0, 140, 2],
+        "no-alert": "off",
         "no-case-declarations": "off",
         "no-duplicate-imports": "off",
         "no-param-reassign": "off",
