@@ -29,6 +29,7 @@
     "webpack": "^2.3.3"
   },
   "dependencies": {
+    "js-cookie": "^2.2.0",
     "lodash": "^4.17.4",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",

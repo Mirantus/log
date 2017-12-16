@@ -4,8 +4,9 @@ export type withRouterType = {|
     match: {
         params: any
     },
-    location: {},
+    location: any,
     history: {
-        push: Function
+        push: Function,
+        replace: Function,
     },
 |}
