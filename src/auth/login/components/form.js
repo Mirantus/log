@@ -18,7 +18,7 @@ type Props = {|
 export const form = (props:Props) => {
     return (
         <form onSubmit={props.handleSubmit(props.actions.login)}>
-            Логин: <Field id="login" name="login" component="input" required className="u-full-width" />
+            Логин: <Field id="login" name="login" component="input" type="text" required className="u-full-width" />
             Пароль: <Field id="password" name="password" component="input" type="password" required className="u-full-width" />
             <button type="submit" className="button-primary">Войти</button>
             { props.formError && <Error {...props.formError} /> }

@@ -2,6 +2,8 @@
 
 import type { Dispatch } from 'redux';
 
+import { apiFetchWithAuth } from 'utils/api';
+
 import type { TweetType } from 'types/tweet';
 
 import {
@@ -17,14 +19,7 @@ export const add = (values:TweetType) => async (dispatch:Dispatch<Object>) => {
     dispatch({ type: TWEETS_ADD });
 
     try {
-        const response = await fetch(
-            // $FlowFixMe
-            `${APP_ENV.apiUrl}/tweets/`,
-            {
-                method: 'PUT',
-                body: JSON.stringify(values)
-            }
-        );
+        const response = await apiFetchWithAuth('tweets/', 'PUT', values);
         await response.json();
         dispatch({ type: TWEETS_ADD_OK });
     } catch (error) {

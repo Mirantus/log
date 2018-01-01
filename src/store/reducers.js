@@ -7,7 +7,7 @@ import list from '../tweets/list/reducers/';
 import add from '../tweets/add/reducers/';
 import edit from '../tweets/edit/reducers/';
 import remove from '../tweets/remove/reducers/';
-import auth from '../auth/reducers/index';
+import auth from '../auth/reducers/';
 
 const rootReducer = combineReducers({
     form,

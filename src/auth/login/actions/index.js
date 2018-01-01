@@ -3,6 +3,8 @@
 import Cookie from 'js-cookie';
 import type { Dispatch } from 'redux';
 
+import { apiFetch } from 'utils/api';
+
 import type { LoginType } from 'types/login';
 
 import {
@@ -18,14 +20,7 @@ export const login = (values:LoginType) => async (dispatch:Dispatch<Object>) => 
     dispatch({ type: LOGIN });
 
     try {
-        const response = await fetch(
-            // $FlowFixMe
-            `${APP_ENV.apiUrl}/login/`,
-            {
-                method: 'POST',
-                body: JSON.stringify(values)
-            }
-        );
+        const response = await apiFetch('login/', 'POST', values);
 
         if (response.status === 401) {
             dispatch({
@@ -36,7 +31,7 @@ export const login = (values:LoginType) => async (dispatch:Dispatch<Object>) => 
         }
 
         const token = await response.json();
-        Cookie.set('token', token);
+        Cookie.set('token', token, { expires: 30 });
 
         dispatch({ type: LOGIN_OK });
     } catch (error) {

@@ -23,7 +23,8 @@ export type EditActionType = {|
 |}
 
 export type EditOkActionType = {|
-    type: 'TWEET_EDIT_OK'
+    type: 'TWEET_EDIT_OK',
+    payload: TweetType
 |}
 
 export type EditErrorActionType = {|

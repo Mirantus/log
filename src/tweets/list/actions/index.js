@@ -1,6 +1,7 @@
 // @flow
 import type { Dispatch } from 'redux';
 
+import { apiFetch } from 'utils/api';
 import { TWEETS_FETCH, TWEETS_FETCH_OK, TWEETS_FETCH_ERROR } from '../constants';
 
 export const fetchTweets = () => async (dispatch:Dispatch<Object>) => {
@@ -9,8 +10,7 @@ export const fetchTweets = () => async (dispatch:Dispatch<Object>) => {
     });
 
     try {
-        // $FlowFixMe
-        const response = await fetch(`${APP_ENV.apiUrl}/tweets/`);
+        const response = await apiFetch('tweets/');
         const tweets = await response.json();
 
         dispatch({

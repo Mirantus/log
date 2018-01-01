@@ -34,7 +34,9 @@ export class LoginContainer extends Component<Props> {
 
     componentWillReceiveProps(nextProps:Props) {
         if (nextProps.isAuthorized) {
-            nextProps.history.replace(nextProps.location.state.from.pathname);
+            const from = nextProps.location.state && nextProps.location.state.from.pathname;
+            const to = from || '/';
+            nextProps.history.replace(to);
         }
     }
 

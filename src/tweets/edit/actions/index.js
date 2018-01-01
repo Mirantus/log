@@ -2,6 +2,8 @@
 
 import type { Dispatch } from 'redux';
 
+import { apiFetch, apiFetchWithAuth } from 'utils/api';
+
 import type { TweetType } from 'types/tweet';
 
 import {
@@ -23,8 +25,7 @@ export const fetchTweet = (id:Number) => async (dispatch:Dispatch<Object>) => {
     });
 
     try {
-        // $FlowFixMe
-        const response = await fetch(`${APP_ENV.apiUrl}/tweets/${id}`);
+        const response = await apiFetch(`tweets/${id.toString()}`);
         const tweet = await response.json();
 
         dispatch({
@@ -43,16 +44,12 @@ export const editTweet = (id:Number, values:TweetType) => async (dispatch:Dispat
     dispatch({ type: TWEET_EDIT });
 
     try {
-        const response = await fetch(
-            // $FlowFixMe
-            `${APP_ENV.apiUrl}/tweets/${id}`,
-            {
-                method: 'POST',
-                body: JSON.stringify(values)
-            }
-        );
-        await response.json();
-        dispatch({ type: TWEET_EDIT_OK });
+        const response = await apiFetchWithAuth(`tweets/${id.toString()}`, 'POST', values);
+        const tweet = await response.json();
+        dispatch({
+            type: TWEET_EDIT_OK,
+            payload: tweet
+        });
     } catch (error) {
         dispatch({
             type: TWEET_EDIT_ERROR,
