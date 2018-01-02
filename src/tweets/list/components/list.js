@@ -4,11 +4,14 @@ import React from 'react';
 import pure from 'recompose/pure';
 import { Link } from 'react-router-dom';
 
+import Controls from './controls';
+
 import type { StateType as TweetsListType } from '../reducers/data';
 
 type Props = {|
     tweets: TweetsListType,
     isRemoving: boolean,
+    isAuthorized: boolean,
     onRemove: Function
 |}
 
@@ -34,32 +37,29 @@ const List = (props:Props) => {
     return (
         <div>
             {
+                props.isAuthorized && (
+                    <div>
+                        <hr />
+                        <Link to={'/add/'}>добавить</Link>
+                    </div>
+                )
+            }
+            {
                 props.tweets.map(
                     tweet => (
                         <div key={tweet.id}>
                             <hr />
                             <b><small>{formatDate(tweet.date)}</small></b><br />
                             {tweet.text}<br />
-                            <Link to={`/edit/${tweet.id}`}>редактировать</Link>
-                            &nbsp;
                             {
-                                props.isRemoving
-                                    ? 'удаляется...'
-                                    : (
-                                        <a
-                                            href={`/remove/${tweet.id}`}
-                                            onClick={
-                                                (e:SyntheticEvent<HTMLAnchorElement>) => {
-                                                    e.preventDefault();
-                                                    if (confirm('Вы действительно хотите удалить?')) {
-                                                        props.onRemove(tweet.id);
-                                                    }
-                                                }
-                                            }
-                                        >удалить</a>
-                                    )
+                                props.isAuthorized && (
+                                    <Controls
+                                        tweet={tweet}
+                                        isRemoving={props.isRemoving}
+                                        onRemove={props.onRemove}
+                                    />
+                                )
                             }
-                            <br />
                         </div>
                     )
                 )

@@ -20,6 +20,7 @@ type Props = {|
     isLoaded: boolean,
     isFetching: boolean,
     isRemoving: boolean,
+    isAuthorized: boolean,
     error: ErrorType,
     actions: {
         fetchTweets: Function,
@@ -37,7 +38,7 @@ export class TweetsListContainer extends Component<Props> {
     }
 
     render() {
-        const { actions, tweets, isFetching, isRemoving, error } = this.props;
+        const { actions, tweets, isFetching, isRemoving, error, isAuthorized } = this.props;
 
         if (isFetching) {
             return <Loader />;
@@ -48,7 +49,12 @@ export class TweetsListContainer extends Component<Props> {
         }
 
         return (
-            <TweetsList tweets={tweets} isRemoving={isRemoving} onRemove={actions.removeTweet} />
+            <TweetsList
+                tweets={tweets}
+                isRemoving={isRemoving}
+                onRemove={actions.removeTweet}
+                isAuthorized={isAuthorized}
+            />
         );
     }
 }
