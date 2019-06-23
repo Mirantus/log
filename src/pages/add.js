@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import TweetsAdd from 'tweets/add/';
+import ItemsAdd from 'items/add/';
 
 export default () => (
     <div>
         <h1>Добавление записи</h1>
-        <TweetsAdd />
+        <ItemsAdd />
     </div>
 );

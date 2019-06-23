@@ -2,11 +2,8 @@
 
 import React from 'react';
 
-import TweetList from 'tweets/list/';
+import ItemList from 'items/list/';
 
 export default () => (
-    <div>
-        <h1>Tweets</h1>
-        <TweetList />
-    </div>
+    <ItemList />
 );
