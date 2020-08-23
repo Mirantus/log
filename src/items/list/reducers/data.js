@@ -2,9 +2,11 @@
 
 import type { ItemType } from 'types/item';
 
+import { ITEMS_ADD_OK } from 'items/add/constants';
 import { ITEM_EDIT_OK } from 'items/edit/constants';
 import { ITEM_REMOVE_OK } from 'items/remove/constants';
 
+import type { AddActionType } from 'items/add/actions/types';
 import type { EditOkActionType } from 'items/edit/actions/types';
 import type { RemoveOkActionType } from 'items/remove/actions/types';
 
@@ -13,6 +15,7 @@ import { ITEMS_FETCH, ITEMS_FETCH_OK } from '../constants';
 import type { ActionType as FetchActionType } from '../actions/types';
 
 type ActionType =
+    | AddActionType
     | FetchActionType
     | EditOkActionType
     | RemoveOkActionType
@@ -23,6 +26,7 @@ const initialState = [];
 // $FlowFixMe
 export default (state:StateType = initialState, action:ActionType):StateType => {
     switch (action.type) {
+        case ITEMS_ADD_OK:
         case ITEMS_FETCH:
             return initialState;
         case ITEMS_FETCH_OK:
